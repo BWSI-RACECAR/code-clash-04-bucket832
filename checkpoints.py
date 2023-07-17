@@ -37,8 +37,8 @@ class Solution:
             #TODO: Write code below to returnn an int with the solution to the prompt.
             longest = 0
             for i in range(1, len(checkpoints)):
-                 if checkpoints[i] - checkpoints[i-1] > longest:
-                      longest = checkpoints[i] - checkpoints[i-1]
+                 if abs(checkpoints[i] - checkpoints[i-1]) > longest:
+                      longest = abs(checkpoints[i] - checkpoints[i-1])
             return longest
 
 def main():
