@@ -33,22 +33,19 @@ class Solution:
             # Sort checkpoints from least to greatest
             #type num: list of int
             #return type: int
-            newList = []
             #TODO: Write code below to returnn an int with the solution to the prompt.
-            current = 0
-            largest = 0
-            for i in range(0, len(checkpoints)):
-                for j in range(current, len(checkpoints)):
-                    if checkpoints[j] > largest:
-                        largest = checkpoints[j]
-                newList.append(checkpoints.pop(checkpoints.index(largest)))
+
 
             longest = 0
-            for i in range(1, len(checkpoints)):
-                 if abs(checkpoints[i] - checkpoints[i-1]) > longest:
-                      longest = abs(checkpoints[i] - checkpoints[i-1])
-            return longest
+            for i in checkpoints:
+                smaller = 0
+                for j in checkpoints:
+                    if j < i and j > smaller:
+                        smaller = j
 
+                if (i - smaller) > longest:
+                      longest = (i - smaller)
+            return longest
 
 def main():
     array = input().split(" ")
